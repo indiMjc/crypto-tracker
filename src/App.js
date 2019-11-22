@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, Link } from "react-router-dom";
-import { getCoins, getExchs } from "./actions/";
-import "./App.css";
 import TopTenExchanges from "./components/exchanges/TopTenExchanges";
 import ExchangeData from "./components/exchanges/ExchangeData";
 import CoinData from "./components/coins/CoinData";
 import Top50Coins from "./components/coins/Top50Coins";
+import "./App.css";
 
 function App() {
   return (
