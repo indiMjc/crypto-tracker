@@ -7,7 +7,7 @@ const Top50Coins = () => {
   const coins = useSelector(state => state.coinData);
 
   return (
-    <div className="coin-card-container">
+    <div id="coin-card-container">
       {coins.map(coin => (
         <Coin coin={coin} key={coin.id} vis={vis} toggleVis={setVis} />
       ))}
