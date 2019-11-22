@@ -1,3 +1,9 @@
 export const initialState = {
-  initial: []
+  coinData: [],
+  gettingCoins: false,
+  getCoinErr: null,
+
+  events: [],
+  gettingExchanges: false,
+  getExchErr: null
 };
