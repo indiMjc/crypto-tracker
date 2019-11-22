@@ -1,16 +1,28 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { Route, Link } from "react-router-dom";
 import { getCoins, getExchs } from "./actions/";
 import "./App.css";
+import TopTenExchanges from "./components/exchanges/TopTenExchanges";
+import ExchangeData from "./components/exchanges/ExchangeData";
+import CoinData from "./components/coins/CoinData";
+import Top50Coins from "./components/coins/Top50Coins";
 
 function App() {
-  const dispatch = useDispatch();
-
   return (
     <div className="App">
-      <h1>test</h1>
-      <button onClick={() => dispatch(getExchs())}>get top 10 exchanges</button>
-      <button onClick={() => dispatch(getCoins())}>get top 100 coins</button>
+      <Link to="/exchangeData">View Exchange Data</Link>
+      <Link to="/coinData">View Coin Data</Link>
+
+      <Route
+        path="/exchangeData"
+        render={props => <ExchangeData {...props} />}
+      />
+      <Route
+        path="/topTenExchanges"
+        render={props => <TopTenExchanges {...props} />}
+      />
+      <Route path="/coinData" render={props => <CoinData {...props} />} />
+      <Route path="/top50coins" render={props => <Top50Coins {...props} />} />
     </div>
   );
 }
