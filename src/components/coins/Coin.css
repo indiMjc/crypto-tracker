@@ -5,10 +5,10 @@
   justify-content: center;
   min-height: 95vh;
   margin-top: 5vh;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
-#coin-card-container::-webkit-scrollbar-thumb {
+/* #coin-card-container::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #fff;
   background-image: -webkit-gradient(
@@ -19,7 +19,7 @@
     to(#19911d),
     color-stop(0.6, #54de5d)
   );
-}
+} */
 
 .coin-card {
   display: flex;
@@ -42,6 +42,9 @@
 }
 
 .coin-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-size: contain;
   background-repeat: no-repeat;
   height: 13vh;
