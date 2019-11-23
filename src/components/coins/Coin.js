@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Coin.css";
+import CoinModal from "./CoinModal";
 
 const Coin = props => {
   const [vis, setVis] = useState(false);
@@ -16,11 +17,21 @@ const Coin = props => {
   };
 
   return (
-    <section className="coin-card" id={visClass} onClick={() => showThisCoin()}>
+    <section
+      className="coin-card"
+      /*id={visClass}*/ onClick={() => showThisCoin()}
+    >
       <div className="coin-img" style={filtered}>
         <p>{props.coin.symbol}</p>
       </div>
-      <section className="coin-info">
+      {vis && (
+        <CoinModal
+          coin={props.coin}
+          visClass={visClass}
+          showThisCoin={showThisCoin}
+        />
+      )}
+      {/* <section className="coin-info">
         {vis && (
           <table>
             <thead>
@@ -72,7 +83,7 @@ const Coin = props => {
             </tbody>
           </table>
         )}
-      </section>
+      </section> */}
     </section>
   );
 };
