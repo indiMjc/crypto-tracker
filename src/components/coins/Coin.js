@@ -19,9 +19,9 @@ const Coin = props => {
   return (
     <section
       className="coin-card"
-      /*id={visClass}*/ onClick={() => showThisCoin()}
+      /*id={visClass} onClick={() => showThisCoin()}*/
     >
-      <div className="coin-img" style={filtered}>
+      <div className="coin-img" style={filtered} onClick={() => showThisCoin()}>
         <p>{props.coin.symbol}</p>
       </div>
       {vis && (
