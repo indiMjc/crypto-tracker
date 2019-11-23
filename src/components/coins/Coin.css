@@ -82,7 +82,7 @@
 
 .tables {
   display: flex;
-  margin: 0;
+  margin: 0 1rem 0 0;
 }
 
 table {
@@ -94,13 +94,13 @@ table {
 }
 
 thead,
-tbody,
-.table {
+tbody {
   height: 100%;
 }
 
 table tr th,
 table tr td {
+  height: 100%;
   width: 5%;
   border: 1px solid black;
 }
