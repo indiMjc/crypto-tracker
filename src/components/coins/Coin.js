@@ -39,8 +39,6 @@ const Coin = props => {
     backgroundImage: `url(${props.coin.image})`
   };
 
-  //   const upperCaseTicker = ticker => toUpperCase(ticker);
-
   return (
     <section css={cardStyle}>
       <div className="coin-img" style={filtered} onClick={() => showThisCoin()}>
