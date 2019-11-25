@@ -1,4 +1,6 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
+// import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,7 +10,8 @@ const CoinModal = props => {
   };
 
   return (
-    <section className="coin-modal" id={props.visClass}>
+    // <section className="coin-modal" id={props.visClass}>
+    <section css={props.styles} id={props.visClass}>
       <section className="modal-header">
         <div className="coin-img" style={filtered}>
           <p>{props.coin.symbol}</p>
