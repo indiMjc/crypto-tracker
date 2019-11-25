@@ -31,6 +31,8 @@
 }
 
 #expanded {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   left: 0;
   top: 4rem;
@@ -55,6 +57,7 @@
   justify-content: space-evenly;
   width: 100%;
   height: 13vh;
+  margin-bottom: 1rem;
 }
 
 .tables {
