@@ -42,7 +42,7 @@ const Coin = props => {
   return (
     <section css={cardStyle}>
       <div className="coin-img" style={filtered} onClick={() => showThisCoin()}>
-        <p>{props.coin.symbol}</p>
+        <p>{props.coin.symbol.toUpperCase()}</p>
       </div>
       {vis && (
         <CoinModal
