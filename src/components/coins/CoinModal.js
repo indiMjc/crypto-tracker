@@ -10,6 +10,8 @@ const CoinModal = props => {
     backgroundImage: `url(${props.coin.image})`
   };
 
+  const checkIfPostive = num => (num >= 0 ? "green" : "red");
+
   return (
     <div>
       <section css={props.styles} id={props.visClass}>
@@ -32,7 +34,7 @@ const CoinModal = props => {
                   <tbody>
                     <tr>
                       <td>{props.coin.name}</td>
-                      <td>{props.coin.symbol}</td>
+                      <td>{props.coin.symbol.toUpperCase()}</td>
                       <td>${props.coin.current_price}</td>
                       <td>${props.coin.market_cap}</td>
                     </tr>
@@ -71,10 +73,40 @@ const CoinModal = props => {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{props.coin.price_change_24h}</td>
-                      <td>{props.coin.price_change_percentage_24h}%</td>
-                      <td>{props.coin.market_cap_change_24h}</td>
-                      <td>{props.coin.market_cap_change_percentage_24h}%</td>
+                      <td
+                        style={{
+                          color: checkIfPostive(props.coin.price_change_24h)
+                        }}
+                      >
+                        {props.coin.price_change_24h}
+                      </td>
+                      <td
+                        style={{
+                          color: checkIfPostive(
+                            props.coin.price_change_percentage_24h
+                          )
+                        }}
+                      >
+                        {props.coin.price_change_percentage_24h}%
+                      </td>
+                      <td
+                        style={{
+                          color: checkIfPostive(
+                            props.coin.market_cap_change_24h
+                          )
+                        }}
+                      >
+                        {props.coin.market_cap_change_24h}
+                      </td>
+                      <td
+                        style={{
+                          color: checkIfPostive(
+                            props.coin.market_cap_change_percentage_24h
+                          )
+                        }}
+                      >
+                        {props.coin.market_cap_change_percentage_24h}%
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -97,7 +129,9 @@ const CoinModal = props => {
                       </td>
                       <td>{props.coin.total_supply}</td>
                       <td>{props.coin.ath}</td>
-                      <td>{props.coin.ath_change_percentage}</td>
+                      <td style={{ color: checkIfPostive() }}>
+                        {props.coin.ath_change_percentage}%
+                      </td>
                     </tr>
                   </tbody>
                 </table>
