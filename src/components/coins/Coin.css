@@ -117,5 +117,6 @@ table tr th {
 table tr td {
   background: linear-gradient(rgb(255, 255, 255), rgb(185, 185, 185));
   height: 2rem;
-  font-weight: bolder;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
