@@ -56,4 +56,23 @@ export const nextFiftyCoins = (props, page) => dispatch => {
     });
 };
 
+export const previousFiftyCoins = (props, page) => dispatch => {
+  dispatch({ type: GET_COINS });
+
+  const prevPage = page - 2;
+
+  axios
+    .get(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${prevPage}`
+    )
+    .then(res => {
+      dispatch({ type: GOT_COINS, payload: res.data });
+      dispatch({ type: PREVIOUS_50 });
+      props.history.push("/coins");
+    })
+    .catch(err => {
+      dispatch({ type: GET_COINS_ERR, payload: err.message });
+    });
+};
+
 //https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false

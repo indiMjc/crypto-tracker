@@ -2,7 +2,7 @@
 import { jsx, css } from "@emotion/core";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { nextFiftyCoins } from "../../actions";
+import { nextFiftyCoins, previousFiftyCoins } from "../../actions";
 import Coin from "./Coin";
 
 const buttonStyle = css`
@@ -18,7 +18,12 @@ const FiftyCoins = props => {
   return (
     <div id="coin-card-container">
       <div className="coin-pagination">
-        <button css={buttonStyle}>Prev. Page</button>
+        <button
+          css={buttonStyle}
+          onClick={() => dispatch(previousFiftyCoins(props, page))}
+        >
+          Prev. Page
+        </button>
         <button
           css={buttonStyle}
           onClick={() => dispatch(nextFiftyCoins(props, page))}
