@@ -4,7 +4,7 @@ import TopTenExchanges from "./components/exchanges/TopTenExchanges";
 import ExchangeData from "./components/exchanges/ExchangeData";
 import Top50Coins from "./components/coins/Top50Coins";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import Hamburger from "./images/Hamburger";
 
 function App() {

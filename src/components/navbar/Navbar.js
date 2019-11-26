@@ -2,7 +2,9 @@
 import { jsx, css } from "@emotion/core";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCoins } from "../actions";
+import { getCoins } from "../../actions";
+import Button from "../Button";
+import "./navbar.css";
 
 const Navbar = props => {
   const dispatch = useDispatch();
@@ -14,6 +16,7 @@ const Navbar = props => {
       <Link onClick={() => dispatch(getCoins(pageNum))} to="/top50coins">
         View Coin Data
       </Link>
+      <Button text="test" location={`/topTenExchanges`} />
     </div>
   );
 };
