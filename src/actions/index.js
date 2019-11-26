@@ -33,7 +33,7 @@ export const getCoins = (props, page) => dispatch => {
     .then(res => {
       dispatch({ type: GOT_COINS, payload: res.data });
       //   dispatch({ type: NEXT_50 });
-      props.history.push("/top50coins");
+      props.history.push("/coins");
     })
     .catch(err => {
       dispatch({ type: GET_COINS_ERR, payload: err.message });

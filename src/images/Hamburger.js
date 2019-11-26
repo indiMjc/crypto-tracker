@@ -3,8 +3,8 @@ import { jsx, css } from "@emotion/core";
 
 const burgerColor = css`
   position: absolute;
-  top: 2rem;
-  left: 5rem;
+  top: 0;
+  left: 3rem;
   filter: brightness(0) saturate(100%) invert(9%) sepia(32%) saturate(2251%)
     hue-rotate(191deg) brightness(93%) contrast(108%);
   cursor: pointer;
@@ -14,7 +14,7 @@ const Hamburger = props => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="80"
+      width="50"
       height="80"
       fill="none"
       viewBox="0 0 37 23"

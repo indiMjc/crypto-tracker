@@ -3,7 +3,6 @@ import { jsx, css } from "@emotion/core";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoins } from "../../actions";
-import Button from "../Button";
 import "./navbar.css";
 
 const Navbar = props => {
@@ -13,10 +12,26 @@ const Navbar = props => {
   return (
     <div className={props.menuClass}>
       <Link to="/exchangeData">View Exchange Data</Link>
-      <Link onClick={() => dispatch(getCoins(pageNum))} to="/top50coins">
+      {/* <Link onClick={() => dispatch(getCoins(pageNum))} to="/top50coins">
         View Coin Data
+      </Link> */}
+      <Link
+        onClick={() => dispatch(getCoins(pageNum))}
+        to="/coins"
+        className="button-link"
+      >
+        <div className="button-container">
+          <div className="span-parent">
+            <span />
+            <span />
+            <span />
+            <span />
+            <div className="button-filter">
+              <div className="button-text">Coin Data</div>
+            </div>
+          </div>
+        </div>
       </Link>
-      <Button text="test" location={`/topTenExchanges`} />
     </div>
   );
 };

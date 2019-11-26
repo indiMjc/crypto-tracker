@@ -31,7 +31,7 @@ function App() {
         path="/topTenExchanges"
         render={props => <TopTenExchanges {...props} />}
       />
-      <Route path="/top50coins" render={props => <Top50Coins {...props} />} />
+      <Route path="/coins" render={props => <Top50Coins {...props} />} />
     </div>
   );
 }
