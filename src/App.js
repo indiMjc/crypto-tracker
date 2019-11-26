@@ -1,20 +1,15 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Route } from "react-router-dom";
 import TopTenExchanges from "./components/exchanges/TopTenExchanges";
 import ExchangeData from "./components/exchanges/ExchangeData";
 import Top50Coins from "./components/coins/Top50Coins";
 import "./App.css";
-import { getCoins } from "./actions";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const dispatch = useDispatch();
   return (
     <div className="App">
-      <Link to="/exchangeData">View Exchange Data</Link>
-      <Link onClick={() => dispatch(getCoins())} to="/top50coins">
-        View Coin Data
-      </Link>
+      <Navbar />
 
       <Route
         path="/exchangeData"
