@@ -25,6 +25,15 @@ const buttonStyle = css`
   }
 `;
 
+const disabledGlow = css`
+  height: 5vh;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.7rem;
+  background: radial-gradient(ellipse, white, transparent);
+  font-weight: bolder;
+`;
+
 const FiftyCoins = props => {
   const [vis, setVis] = useState(false);
   const coins = useSelector(state => state.coinData);
@@ -42,14 +51,14 @@ const FiftyCoins = props => {
       <div className="coin-pagination-container">
         <div className="coin-pagination">
           <button
-            css={buttonStyle}
+            css={disablePrevious ? disabledGlow : buttonStyle}
             onClick={() => dispatch(previousFiftyCoins(props, page))}
             disabled={disablePrevious}
           >
             Prev. Page
           </button>
           <button
-            css={buttonStyle}
+            css={disableNext ? disabledGlow : buttonStyle}
             onClick={() => dispatch(nextFiftyCoins(props, page))}
             disabled={disableNext}
           >
