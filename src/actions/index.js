@@ -6,7 +6,9 @@ import {
   GET_EXCHS_ERR,
   GET_COINS,
   GOT_COINS,
-  GET_COINS_ERR
+  GET_COINS_ERR,
+  NEXT_50,
+  PREVIOUS_50
 } from "../reducers/";
 
 export const getExchs = props => dispatch => {
@@ -18,10 +20,10 @@ export const getExchs = props => dispatch => {
       dispatch({ type: GOT_EXCHS, payload: res.data });
       props.history.push("/topTenExchanges");
     })
-    .catch(err => dispatch({ type: GET_EXCHS_ERR, payload: err }));
+    .catch(err => dispatch({ type: GET_EXCHS_ERR, payload: err.message }));
 };
 
-export const getCoins = props => dispatch => {
+export const getCoins = () => dispatch => {
   dispatch({ type: GET_COINS });
 
   axios
@@ -29,11 +31,48 @@ export const getCoins = props => dispatch => {
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1`
     )
     .then(res => {
-      console.log(res);
       dispatch({ type: GOT_COINS, payload: res.data });
-      props.history.push("/top50coins");
+      dispatch({ type: NEXT_50 });
     })
-    .catch(err => dispatch({ type: GET_COINS_ERR, payload: err }));
+    .catch(err => {
+      dispatch({ type: GET_COINS_ERR, payload: err.message });
+    });
+};
+
+export const nextFiftyCoins = (props, page) => dispatch => {
+  dispatch({ type: GET_COINS });
+
+  axios
+    .get(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${page}`
+    )
+    .then(res => {
+      dispatch({ type: GOT_COINS, payload: res.data });
+      dispatch({ type: NEXT_50 });
+      props.history.push("/coins");
+    })
+    .catch(err => {
+      dispatch({ type: GET_COINS_ERR, payload: err.message });
+    });
+};
+
+export const previousFiftyCoins = (props, page) => dispatch => {
+  dispatch({ type: GET_COINS });
+
+  const prevPage = page - 2;
+
+  axios
+    .get(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${prevPage}`
+    )
+    .then(res => {
+      dispatch({ type: GOT_COINS, payload: res.data });
+      dispatch({ type: PREVIOUS_50 });
+      props.history.push("/coins");
+    })
+    .catch(err => {
+      dispatch({ type: GET_COINS_ERR, payload: err.message });
+    });
 };
 
 //https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false

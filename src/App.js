@@ -1,20 +1,27 @@
-import React from "react";
-import { Route, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { Route } from "react-router-dom";
 import TopTenExchanges from "./components/exchanges/TopTenExchanges";
 import ExchangeData from "./components/exchanges/ExchangeData";
-import Top50Coins from "./components/coins/Top50Coins";
+import FiftyCoins from "./components/coins/50Coins";
 import "./App.css";
-import { getCoins } from "./actions";
+import Navbar from "./components/navbar/Navbar";
+import Hamburger from "./images/Hamburger";
 
 function App() {
-  const dispatch = useDispatch();
+  const [menuClass, setMenuClass] = useState("closed");
+
+  const menuClick = () => {
+    const css = menuClass === "closed" ? "opened" : "closed";
+    setMenuClass(css);
+  };
+
+  const fieldClick = () =>
+    menuClass === "opened" ? setMenuClass("closed") : null;
+
   return (
-    <div className="App">
-      <Link to="/exchangeData">View Exchange Data</Link>
-      <Link onClick={() => dispatch(getCoins())} to="/top50coins">
-        View Coin Data
-      </Link>
+    <div className="App" onClick={fieldClick}>
+      <Hamburger menuClick={menuClick} />
+      <Navbar menuClass={menuClass} />
 
       <Route
         path="/exchangeData"
@@ -24,7 +31,7 @@ function App() {
         path="/topTenExchanges"
         render={props => <TopTenExchanges {...props} />}
       />
-      <Route path="/top50coins" render={props => <Top50Coins {...props} />} />
+      <Route path="/coins" render={props => <FiftyCoins {...props} />} />
     </div>
   );
 }

@@ -160,3 +160,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.opened {
+  position: absolute;
+  top: 9rem;
+  left: 5rem;
+  min-height: 40vh;
+  width: 10vw;
+  transition-duration: 0.5s;
+}
+
+.closed {
+  position: absolute;
+  top: 9rem;
+  left: 5rem;
+  min-height: 40vh;
+  width: 10vw;
+  transform: translateY(-60rem);
+  transition-duration: 0.5s;
+  font-size: 10rem;
+}

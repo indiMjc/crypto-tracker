@@ -1,10 +1,27 @@
 #coin-card-container {
+  height: 100vh;
+  margin: 0 4vh;
+  padding-top: 3rem;
+}
+
+.coin-pagination-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding-right: 4vw;
+}
+
+.coin-pagination {
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
+}
+
+.coin-cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  min-height: 88vh;
-  margin-top: 5vh;
 }
 
 .coin-img {
@@ -45,7 +62,6 @@
 
 .coin-info {
   display: flex;
-  /* flex-wrap: wrap; */
   align-items: center;
   font-size: 3rem;
   height: 13vh;
@@ -66,9 +82,19 @@
 }
 
 table {
-  height: 100%;
   font-size: 5rem;
-  margin: 0 auto;
+  margin: 0 1rem;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+table div {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: linear-gradient(rgb(180, 180, 180), rgb(126, 126, 126));
+  height: 5rem;
+  border: 1px solid black;
 }
 
 thead,
@@ -91,12 +117,6 @@ table tr th {
 table tr td {
   background: linear-gradient(rgb(255, 255, 255), rgb(185, 185, 185));
   height: 2rem;
-}
-
-@media screen and (max-width: 1250px) {
-  .tables {
-    position: relative;
-    top: 8rem;
-    flex-direction: column;
-  }
+  font-size: 1.5rem;
+  font-weight: bold;
 }
