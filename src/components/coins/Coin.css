@@ -102,30 +102,3 @@ table tr td {
   height: 2rem;
   font-weight: bolder;
 }
-
-@media screen and (max-width: 1250px) {
-  .table {
-    width: 1880px;
-    overflow: hidden;
-    overflow-x: scroll;
-  }
-}
-
-/* .table {
-  margin-top: 20px;
-  height: 200px;
-  overflow-x: auto;
-} */
-
-/* .table th div {
-  position: absolute;
-  margin-top: -20px;
-} */
-
-/* @media screen and (max-width: 1250px) {
-  .tables {
-    position: relative;
-    top: 8rem;
-    flex-direction: column;
-  }
-} */

@@ -5,10 +5,12 @@ import ExchangeData from "./components/exchanges/ExchangeData";
 import Top50Coins from "./components/coins/Top50Coins";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Hamburger from "./images/Hamburger";
 
 function App() {
   return (
     <div className="App">
+      <Hamburger />
       <Navbar />
 
       <Route
