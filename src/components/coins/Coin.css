@@ -1,10 +1,13 @@
 #coin-card-container {
+  height: 100vh;
+  margin: 0 4vh;
+}
+
+.coin-cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  min-height: 100vh;
-  margin: 0 4vh;
 }
 
 .coin-img {

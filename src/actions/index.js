@@ -23,7 +23,23 @@ export const getExchs = props => dispatch => {
     .catch(err => dispatch({ type: GET_EXCHS_ERR, payload: err.message }));
 };
 
-export const getCoins = (props, page) => dispatch => {
+export const getCoins = () => dispatch => {
+  dispatch({ type: GET_COINS });
+
+  axios
+    .get(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1`
+    )
+    .then(res => {
+      dispatch({ type: GOT_COINS, payload: res.data });
+      dispatch({ type: NEXT_50 });
+    })
+    .catch(err => {
+      dispatch({ type: GET_COINS_ERR, payload: err.message });
+    });
+};
+
+export const nextFiftyCoins = (props, page) => dispatch => {
   dispatch({ type: GET_COINS });
 
   axios
@@ -32,7 +48,7 @@ export const getCoins = (props, page) => dispatch => {
     )
     .then(res => {
       dispatch({ type: GOT_COINS, payload: res.data });
-      //   dispatch({ type: NEXT_50 });
+      dispatch({ type: NEXT_50 });
       props.history.push("/coins");
     })
     .catch(err => {

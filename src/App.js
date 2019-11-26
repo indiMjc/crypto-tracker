@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import TopTenExchanges from "./components/exchanges/TopTenExchanges";
 import ExchangeData from "./components/exchanges/ExchangeData";
-import Top50Coins from "./components/coins/Top50Coins";
+import FiftyCoins from "./components/coins/50Coins";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Hamburger from "./images/Hamburger";
@@ -31,7 +31,7 @@ function App() {
         path="/topTenExchanges"
         render={props => <TopTenExchanges {...props} />}
       />
-      <Route path="/coins" render={props => <Top50Coins {...props} />} />
+      <Route path="/coins" render={props => <FiftyCoins {...props} />} />
     </div>
   );
 }

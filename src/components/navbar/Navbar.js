@@ -12,11 +12,8 @@ const Navbar = props => {
   return (
     <div className={props.menuClass}>
       <Link to="/exchangeData">View Exchange Data</Link>
-      {/* <Link onClick={() => dispatch(getCoins(pageNum))} to="/top50coins">
-        View Coin Data
-      </Link> */}
       <Link
-        onClick={() => dispatch(getCoins(pageNum))}
+        onClick={() => dispatch(getCoins())}
         to="/coins"
         className="button-link"
       >
