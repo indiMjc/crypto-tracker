@@ -9,3 +9,24 @@
 .App a {
   font-size: 2rem;
 }
+
+.opened {
+  position: absolute;
+  top: 9rem;
+  left: 5rem;
+  min-height: 40vh;
+  width: 10vw;
+  border: 1px solid red;
+  transition-duration: 0.5s;
+}
+
+.closed {
+  position: absolute;
+  top: 9rem;
+  left: 5rem;
+  min-height: 40vh;
+  width: 10vw;
+  border: 1px solid red;
+  transform: translateY(-60rem);
+  transition-duration: 0.5s;
+}

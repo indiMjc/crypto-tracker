@@ -8,23 +8,20 @@ import Navbar from "./components/Navbar";
 import Hamburger from "./images/Hamburger";
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [menuClass, setMenuClass] = useState("closed");
+
+  const menuClick = () => {
+    const css = menuClass === "closed" ? "opened" : "closed";
+    setMenuClass(css);
+  };
 
   const fieldClick = () =>
     menuClass === "opened" ? setMenuClass("closed") : null;
 
   return (
     <div className="App" onClick={fieldClick}>
-      <Hamburger
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-        menuClass={menuClass}
-        setMenuClass={setMenuClass}
-      />
-      <div className="menu" id={menuClass}>
-        <Navbar />
-      </div>
+      <Hamburger menuClick={menuClick} />
+      <Navbar menuClass={menuClass} />
 
       <Route
         path="/exchangeData"

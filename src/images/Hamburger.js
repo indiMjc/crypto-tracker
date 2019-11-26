@@ -11,12 +11,6 @@ const burgerColor = css`
 `;
 
 const Hamburger = props => {
-  const toggleMenu = () => {
-    const css = props.menuClass === "closed" ? "opened" : "closed";
-    props.setMenuClass(css);
-    props.setMenuOpen(!props.menuOpen);
-  };
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +20,7 @@ const Hamburger = props => {
       viewBox="0 0 37 23"
       className="hamburger"
       css={burgerColor}
-      onClick={toggleMenu}
+      onClick={props.menuClick}
     >
       <path stroke="#fff" strokeWidth="3" d="M0 1.5L37 1.5"></path>
       <path stroke="#fff" strokeWidth="3" d="M0 11.5L29 11.5"></path>
