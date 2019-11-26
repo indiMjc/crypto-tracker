@@ -1,6 +1,20 @@
 #coin-card-container {
   height: 100vh;
   margin: 0 4vh;
+  padding-top: 3rem;
+}
+
+.coin-pagination-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding-right: 4vw;
+}
+
+.coin-pagination {
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
 }
 
 .coin-cards {

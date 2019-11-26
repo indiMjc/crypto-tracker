@@ -39,21 +39,23 @@ const FiftyCoins = props => {
 
   return (
     <div id="coin-card-container">
-      <div className="coin-pagination">
-        <button
-          css={buttonStyle}
-          onClick={() => dispatch(previousFiftyCoins(props, page))}
-          disabled={disablePrevious}
-        >
-          Prev. Page
-        </button>
-        <button
-          css={buttonStyle}
-          onClick={() => dispatch(nextFiftyCoins(props, page))}
-          disabled={disableNext}
-        >
-          Next Page
-        </button>
+      <div className="coin-pagination-container">
+        <div className="coin-pagination">
+          <button
+            css={buttonStyle}
+            onClick={() => dispatch(previousFiftyCoins(props, page))}
+            disabled={disablePrevious}
+          >
+            Prev. Page
+          </button>
+          <button
+            css={buttonStyle}
+            onClick={() => dispatch(nextFiftyCoins(props, page))}
+            disabled={disableNext}
+          >
+            Next Page
+          </button>
+        </div>
       </div>
       <div className="coin-cards">
         {coins.map(coin => (
