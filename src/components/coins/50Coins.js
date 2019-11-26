@@ -29,12 +29,13 @@ const FiftyCoins = props => {
   const [vis, setVis] = useState(false);
   const coins = useSelector(state => state.coinData);
   const page = useSelector(state => state.coinPageNum);
+  const loading = useSelector(state => state.gettingCoins);
 
   const dispatch = useDispatch();
 
-  const disableNext = page <= 1 ? true : false;
+  const disableNext = page <= 1 || loading ? true : false;
 
-  const disablePrevious = page <= 2 ? true : false;
+  const disablePrevious = page <= 2 || loading ? true : false;
 
   return (
     <div id="coin-card-container">
