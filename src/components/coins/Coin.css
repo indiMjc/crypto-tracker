@@ -102,3 +102,8 @@ table tr td {
   height: 2rem;
   font-weight: bolder;
 }
+
+.hamburger {
+  border: 1px solid red;
+  margin-top: 1rem;
+}
