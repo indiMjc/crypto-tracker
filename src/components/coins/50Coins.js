@@ -9,7 +9,6 @@ const buttonStyle = css`
   height: 5vh;
   font-size: 1.5rem;
   border: none;
-  border-radius: 0.7rem;
   background: radial-gradient(ellipse, white, transparent);
   font-weight: bolder;
 
